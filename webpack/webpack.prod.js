@@ -1,13 +1,12 @@
-const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const path = require('path');
-
-const common = require('./webpack.common.js');
+const { merge } = require("webpack-merge");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const path = require("path");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: "production",
   devtool: false,
   optimization: {
     runtimeChunk: false,
@@ -15,15 +14,20 @@ module.exports = merge(common, {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          chunks: 'all'
-        }
-      }
-    }
+          chunks: "all",
+        },
+      },
+    },
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../public', 'index.html'),
-      filename: './index.html',
+      template: path.resolve(__dirname, "../public", "index.html"),
+      filename: "./index.html",
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -34,14 +38,13 @@ module.exports = merge(common, {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true
+        minifyURLs: true,
       },
-      inject: true
+      inject: true,
     }),
-    new OptimizeCssAssetsPlugin(),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      openAnalyzer: true
-    })
-  ]
+      analyzerMode: "static",
+      openAnalyzer: true,
+    }),
+  ],
 });

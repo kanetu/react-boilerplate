@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import "App.scss";
 import Button from "@components/Button/Button";
+import React, { useEffect } from "react";
 
-const App: React.FC = () => {
+const Example2: React.FC = () => {
   useEffect(() => {
     fetch("/getUser", {
       method: "POST",
@@ -17,4 +16,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Example2;
