@@ -20,14 +20,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: "ts-loader",
+        test: /\.(ts|tsx|js|jsx)?$/,
+        loader: "babel-loader",
         exclude: /node_modules/,
-        options: {
-          compilerOptions: {
-            sourceMap: !isProduction,
-          },
-        },
+        // options: {
+        //   compilerOptions: {
+        //     sourceMap: !isProduction,
+        //   },
+        // },
       },
       {
         test: /\.s[ac]ss$/i,
@@ -61,7 +61,16 @@ module.exports = {
   ],
   resolve: {
     modules: [src, "node_modules"],
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    fallback: {
+      fs: false,
+      path: false,
+      crypto: false,
+      module: false,
+      os: false,
+      vm: false,
+      tty: false,
+    },
     alias: {
       "@components": path.resolve(__dirname, "../src/components/"),
       "@pages": path.resolve(__dirname, "../src/pages/"),

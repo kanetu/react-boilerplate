@@ -3,6 +3,7 @@ import { rest } from "msw";
 export const handlers = [
   // Handles a POST /login request
   rest.post("/getUser", (req, res, ctx) => {
+    console.log(req);
     const user = {
       name: "Hieu Tu",
       age: 25,

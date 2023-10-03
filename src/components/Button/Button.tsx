@@ -1,8 +1,6 @@
-interface IButton {
-  title: string;
-}
-const Button: React.FC<IButton> = ({ title }) => {
-  return <button>{title}</button>;
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+const Button: React.FC<ButtonProps> = (props) => {
+  return <button {...props}>{props.children}</button>;
 };
 
 export default Button;
