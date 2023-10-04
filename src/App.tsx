@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import Profile from "@features/Profile";
 import "App.scss";
-import tw from "twin.macro";
+import React, { useEffect } from "react";
 import {
   BrowserRouter,
   Navigate,
@@ -8,7 +8,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import Profile from "@features/Profile";
+import tw from "twin.macro";
 
 const Input = tw.input`border hover:border-blue-50 p-5 m-4`;
 

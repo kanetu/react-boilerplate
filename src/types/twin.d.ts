@@ -1,6 +1,6 @@
 import "twin.macro";
 import styledImport, { CSSProp, css as cssImport } from "styled-components";
-
+import "@testing-library/jest-dom";
 declare module "twin.macro" {
   // The styled and css imports
   const styled: typeof styledImport;
