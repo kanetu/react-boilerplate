@@ -1,5 +1,6 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 type UserInfoFormValues = {
   name: string;
@@ -12,6 +13,8 @@ type UserInfoFormValues = {
 const UserInfoForm: React.FC = () => {
   const { handleSubmit, control } = useForm<UserInfoFormValues>();
 
+  const { t } = useTranslation();
+
   const onSubmit = (data: UserInfoFormValues) => {
     // Handle the form data submission (e.g., send it to a server)
     console.log(data);
@@ -19,6 +22,7 @@ const UserInfoForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {t("global.welcome")}
       <div>
         <label>Name</label>
         <Controller

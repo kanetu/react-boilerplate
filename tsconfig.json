@@ -23,8 +23,9 @@
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@features/*": ["src/features/*"],
+      "@translations/*": ["src/translations/*"],
       "@test-utils": ["src/test-utils"]
     }
   },
-  "include": ["src", "types"]
+  "include": ["src", "types", "settings"]
 }

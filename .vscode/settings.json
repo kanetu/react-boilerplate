@@ -38,7 +38,7 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "editor.language.brackets": [],
   "editor.tabSize": 4,
   "editor.semanticTokenColorCustomizations": {},
