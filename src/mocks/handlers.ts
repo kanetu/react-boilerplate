@@ -1,8 +1,8 @@
 import { rest } from "msw";
 
 export const handlers = [
-  // Handles a POST /login request
-  rest.post("/getUser", (req, res, ctx) => {
+  // Handles a GET /login request
+  rest.get("/getUser", (req, res, ctx) => {
     console.log(req);
     const user = {
       name: "Hieu Tu",
@@ -12,7 +12,7 @@ export const handlers = [
     return res(
       // Respond with a 200 status code
       ctx.status(200),
-      ctx.json(user)
+      ctx.json({ data: user })
     );
   }),
 ];
