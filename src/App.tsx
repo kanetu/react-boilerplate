@@ -1,4 +1,4 @@
-import Profile from "@features/Profile";
+import User from "@features/User";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "App.scss";
 import React from "react";
@@ -24,7 +24,7 @@ const App: React.FC = () => {
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<AuthRoute />}>
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={<User />} />
             </Route>
             {/* <Route path="/login" element={<Login />} /> */}
             <Route path="*" element={<Navigate to="/" replace />} />

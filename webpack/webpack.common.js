@@ -77,6 +77,8 @@ module.exports = {
       "@assets": path.resolve(__dirname, "../src/assets"),
       "@test-utils": path.resolve(__dirname, "../src/test-utils"),
       "@translations": path.resolve(__dirname, "../src/translations"),
+      "@libs": path.resolve(__dirname, "../src/libs"),
+      "@services": path.resolve(__dirname, "../src/services"),
     },
   },
 };
