@@ -9,9 +9,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import tw from "twin.macro";
-
-const Input = tw.input`border hover:border-blue-50 p-5 m-4`;
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +22,7 @@ const App: React.FC = () => {
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<AuthRoute />}>
-              <Route path="/profile" element={<User />} />
+              <Route path="/" element={<User />} />
             </Route>
             {/* <Route path="/login" element={<Login />} /> */}
             <Route path="*" element={<Navigate to="/" replace />} />
@@ -32,6 +30,8 @@ const App: React.FC = () => {
           {/* <Footer /> */}
         </BrowserRouter>
       </div>
+
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 };

@@ -5,8 +5,8 @@ const dotenv = require("dotenv").config({
   path: path.join(__dirname, "../.env"),
 });
 
-const isProduction =
-  typeof NODE_ENV !== "undefined" && NODE_ENV === "production";
+// const isProduction =
+//   typeof NODE_ENV !== "undefined" && NODE_ENV === "production";
 
 module.exports = {
   entry: src,
@@ -56,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": dotenv.parsed,
+      "process.env": JSON.stringify(dotenv.parsed),
     }),
   ],
   resolve: {
@@ -79,6 +79,7 @@ module.exports = {
       "@translations": path.resolve(__dirname, "../src/translations"),
       "@libs": path.resolve(__dirname, "../src/libs"),
       "@services": path.resolve(__dirname, "../src/services"),
+      "@utils": path.resolve(__dirname, "../src/utils"),
     },
   },
 };

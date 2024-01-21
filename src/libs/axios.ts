@@ -61,6 +61,11 @@ const setupAxiosInstance = (baseUrl: string) => {
   return instance;
 };
 
-const githubInstance = setupAxiosInstance("https://example.com");
+const baseUrl =
+  process.env.MODE === "development"
+    ? process.env.DEV_BASE_URL
+    : process.env.PROD_BASE_URL;
+
+const githubInstance = setupAxiosInstance(baseUrl || "");
 
 export default githubInstance;

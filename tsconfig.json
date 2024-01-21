@@ -6,6 +6,7 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./build/",
+    "noImplicitThis": false,
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": true,
@@ -19,6 +20,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "baseUrl": "./",
+    "types": ["jest"],
     "paths": {
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
@@ -26,7 +28,8 @@
       "@translations/*": ["src/translations/*"],
       "@test-utils": ["src/test-utils"],
       "@libs/*": ["src/libs/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src", "types", "settings"]
